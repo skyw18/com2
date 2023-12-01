@@ -1,0 +1,200 @@
+﻿<Window x:Class="ComTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComTool"
+        mc:Ignorable="d"
+        Title="ComTool" Width="1490" Height="810" ResizeMode="CanMinimize" Loaded="Window_Loaded">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="930"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="0" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="0" />
+                <RowDefinition Height="25" />
+                
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                
+                
+                <RichTextBox x:Name="tBox1" Grid.Column="0" IsReadOnly="True" FontSize="12" VerticalScrollBarVisibility="Auto"/>
+                <RichTextBox x:Name="tBox2" Grid.Column="1" IsReadOnly="True" FontSize="12" VerticalScrollBarVisibility="Auto"/>
+
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="bClear1" Grid.Column="0" Width="75" HorizontalAlignment="Left" Content="清空日志0" FontSize="12" Click="bClear1_Click" />
+                    <Button x:Name="bSend1" Grid.Column="1" Width="75" Content="发送到串口0" FontSize="12" IsEnabled="False" Click="bSend1_Click"/>
+                    <CheckBox x:Name="cbSend1Hex" Grid.Column="2" Content="发HEX" VerticalAlignment="Center" />
+                    <CheckBox x:Name="cbShow1Hex" Grid.Column="3" Content="显示HEX" VerticalAlignment="Center" />
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="bClear2" Grid.Column="0" Width="75" HorizontalAlignment="Left" Content="清空日志1" FontSize="12" Click="bClear2_Click" />
+                    <Button x:Name="bSend2" Grid.Column="1" Width="75" Content="发送到串口1" FontSize="12" IsEnabled="False" Click="bSend2_Click"/>
+                    <CheckBox x:Name="cbSend2Hex" Grid.Column="2" Content="发HEX" VerticalAlignment="Center" />
+                    <CheckBox x:Name="cbShow2Hex" Grid.Column="3" Content="显示HEX" VerticalAlignment="Center" />
+                </Grid>
+                
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <!--<ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="5"/>-->
+                    <!--<ColumnDefinition Width="100"/>-->
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0"/>
+                </Grid.ColumnDefinitions>
+                <!--<Button x:Name="bRefresh" Grid.Column="0" Content="刷新串口" FontSize="12" IsEnabled="False"/>-->
+                <TextBox x:Name="tBoxSend" Grid.Column="1" TextWrapping="Wrap" Text="hello world" FontSize="12"/>
+            </Grid>
+
+
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="cbPort1" Grid.Column="0" FontSize="12"/>
+                    <ComboBox x:Name="cbRate1" Grid.Column="2" FontSize="12" SelectionChanged="cbRate1_SelectionChanged">
+                        <ComboBoxItem Content="110" />
+                        <ComboBoxItem Content="330" />
+                        <ComboBoxItem Content="600" />
+                        <ComboBoxItem Content="1200" />
+                        <ComboBoxItem Content="2400" />
+                        <ComboBoxItem Content="4800" />
+                        <ComboBoxItem Content="9600" />
+                        <ComboBoxItem Content="14400" />
+                        <ComboBoxItem Content="19200" />
+                        <ComboBoxItem Content="38400" />
+                        <ComboBoxItem Content="56000" />
+                        <ComboBoxItem Content="57600" />
+                        <ComboBoxItem Content="115200" />
+                        <ComboBoxItem Content="128000" />
+                        <ComboBoxItem Content="230400" />
+                        <ComboBoxItem Content="256000" />
+                        <ComboBoxItem Content="460800" />
+                        <ComboBoxItem Content="500000" />
+                        <ComboBoxItem Content="128000" />
+                        <ComboBoxItem Content="512000" />
+                        <ComboBoxItem Content="600000" />
+                        <ComboBoxItem Content="750000" />
+                        <ComboBoxItem Content="921600" />
+                        <ComboBoxItem Content="1000000" />
+                        <ComboBoxItem Content="1500000" />
+                        <ComboBoxItem Content="2000000" />
+                        <ComboBoxItem Content="3000000" />
+                    </ComboBox>
+                    <Button x:Name="bOpen1" Grid.Column="4" Content="打开串口0" FontSize="12" Click="bOpen1_Click"/>
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="cbPort2" Grid.Column="0" FontSize="12"/>
+                    <ComboBox x:Name="cbRate2" Grid.Column="2" FontSize="12" SelectionChanged="cbRate2_SelectionChanged">
+                        <ComboBoxItem Content="110" />
+                        <ComboBoxItem Content="330" />
+                        <ComboBoxItem Content="600" />
+                        <ComboBoxItem Content="1200" />
+                        <ComboBoxItem Content="2400" />
+                        <ComboBoxItem Content="4800" />
+                        <ComboBoxItem Content="9600" />
+                        <ComboBoxItem Content="14400" />
+                        <ComboBoxItem Content="19200" />
+                        <ComboBoxItem Content="38400" />
+                        <ComboBoxItem Content="56000" />
+                        <ComboBoxItem Content="57600" />
+                        <ComboBoxItem Content="115200" />
+                        <ComboBoxItem Content="128000" />
+                        <ComboBoxItem Content="230400" />
+                        <ComboBoxItem Content="256000" />
+                        <ComboBoxItem Content="460800" />
+                        <ComboBoxItem Content="500000" />
+                        <ComboBoxItem Content="128000" />
+                        <ComboBoxItem Content="512000" />
+                        <ComboBoxItem Content="600000" />
+                        <ComboBoxItem Content="750000" />
+                        <ComboBoxItem Content="921600" />
+                        <ComboBoxItem Content="1000000" />
+                        <ComboBoxItem Content="1500000" />
+                        <ComboBoxItem Content="2000000" />
+                        <ComboBoxItem Content="3000000" />
+                    </ComboBox>
+                    <Button x:Name="bOpen2" Grid.Column="4" Content="打开串口1" FontSize="12" Click="bOpen2_Click"/>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+
+
+        <Grid Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label Content="脚本文件名为main.lua，放在程序所在目录下的script子目录" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="bOpenDir" Content="打开脚本所在目录" HorizontalAlignment="Right" Margin="0,0,0,0" Height="25" Width="120" VerticalAlignment="Top" Click="bOpenDir_Click"/>
+            </Grid>
+            <!--<TextBox x:Name="tBoxScript" HorizontalAlignment="Left" Height="212" Margin="920,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="550" FontSize="12"/>-->
+            <RichTextBox Grid.Row="1" x:Name="tBoxLog" Width="Auto" Margin="0,0,0,0" FontSize="12" IsReadOnly="True" VerticalScrollBarVisibility="Auto" />
+            <Grid Grid.Row="2">
+                <Button x:Name="bClearScriptLog" Content="清空脚本日志" HorizontalAlignment="Left" Width="100" FontSize="12" Margin="50,0,0,0" Click="bClearScriptLog_Click"/>
+                <Button x:Name="bRun" Content="运行脚本" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="25" Width="100" FontSize="12" Click="bRun_Click" Margin="0,0,0,0"/>
+            </Grid>
+        </Grid>
+
+
+
+
+    </Grid>
+</Window>
